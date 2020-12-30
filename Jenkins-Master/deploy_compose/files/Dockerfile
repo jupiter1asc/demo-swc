@@ -17,4 +17,6 @@ RUN jenkins-plugin-cli --plugins blueocean:1.24.3             \
  && jenkins-plugin-cli --plugins maven-plugin:3.8             \
  && jenkins-plugin-cli --plugins pipeline-maven:3.9.3         \
  && jenkins-plugin-cli --plugins pipeline-utility-steps:2.6.1 \
- && jenkins-plugin-cli --plugins email-ext:2.80
+ && jenkins-plugin-cli --plugins email-ext:2.80               \
+ && jenkins-plugin-cli --plugins pipeline-github-lib:1.0      \
+ && jenkins-plugin-cli --plugins github:1.32.0
