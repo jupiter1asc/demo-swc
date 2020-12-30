@@ -35,6 +35,19 @@
 - name: SLink docker-compose
   shell: "sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose || echo exists"
 
+- name : Install mc package
+  yum: name=mc state=present
+
+- name: Create jenkins_path directory
+  file:
+    path: "{{ jenkins_path }}"
+    state: directory
+
+- name: Create jenkins_data subdirectory
+  file:
+    path: "{{ jenkins_path }}/jenkins_data"
+    state: directory
+
 - name:
   copy:
     src: Dockerfile

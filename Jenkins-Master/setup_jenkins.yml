@@ -1,0 +1,12 @@
+---
+
+- name: Setup Jenkins Master server
+  hosts: "jenkins"
+  become: yes
+  gather_facts: True
+
+  vars:
+    - jenkins_path: "~/jenkins"
+
+  roles:
+   - deploy_compose
