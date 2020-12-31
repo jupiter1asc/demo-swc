@@ -59,7 +59,7 @@ pipeline {
                                     "-e server_ip=${env.SERVER_IP} " +
                                     "-e project_name=${env.PROJ} " +
                                     "-vv",
-                            credentialsId: 'test-key'
+                            credentialsId: 'jkey'
                     )
                 }
             }
