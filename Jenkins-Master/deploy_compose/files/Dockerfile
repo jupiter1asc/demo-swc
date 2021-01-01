@@ -9,7 +9,9 @@ RUN apt-key fingerprint 0EBFCD88
 RUN add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/debian \
        $(lsb_release -cs) stable"
-RUN apt-get update && apt-get install -y docker-ce-cli
+RUN apt-get update && apt-get install -y docker-ce-cli ansible
+# Update the ansible inventory configuration to avoiding Jenkins plugin error
+RUN sed -i '/#enable_plugins = host_list, virtualbox, yaml, constructed/a enable_plugins = ini' /etc/ansible/ansible.cfg
 USER jenkins
 RUN jenkins-plugin-cli --plugins blueocean:1.24.3             \
  && jenkins-plugin-cli --plugins ansible:1.1                  \
